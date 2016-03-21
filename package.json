@@ -1,0 +1,24 @@
+{
+  "name": "delib",
+  "version": "1.0.0",
+  "description": "Software for Direct Democracy which facilitate decision making in groups and communities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozFri/delib.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ozFri/delib/issues"
+  },
+  "homepage": "https://github.com/ozFri/delib#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "react": "^0.14.7"
+  }
+}
