@@ -1,0 +1,32 @@
+
+    
+#1 set up http server
+#2 user management
+    should have password authentification
+    should have facebook/google/openid authenitification   
+#3 group management
+#4 testing
+    requests tests
+        registration test
+        login test
+        add group test
+    rendering tests
+        render groups
+        render issues
+        render question
+        render option
+         
+#5 routes
+    register
+    login
+    home 
+    group
+    issue
+    question
+    option
+    vote
+
+milestones
+
+
+        
