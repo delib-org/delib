@@ -2,18 +2,18 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Question = sequelize.define("question", {
-     title: Sequelize.STRING,
-    body: Sequelize.TEXT,
-    discussionID: Sequelize.INTEGER,
-    userID: Sequelize.INTEGER,
+     title: DataTypes.STRING,
+    body: DataTypes.TEXT,
+    discussionID: DataTypes.INTEGER,
+    userID: DataTypes.INTEGER,
     uuid: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
       validate: {
         isUuid: true
       }
     }
     // Uncomm. and fill in <<type>> when defined
-    //stateofVisual: Sequelize.<<type>>
+    //stateofVisual: DataTypes.<<type>>
   }, {
     classMethods: {
       associate: function(models) {
@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
           foreignKey: {
             allowNull: false
           }
-        }
+        });
           Question.hasMany(models.Option, {
           onDelete: "CASCADE",
           foreignKey: {

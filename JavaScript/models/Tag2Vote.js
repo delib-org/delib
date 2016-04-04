@@ -2,9 +2,9 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Tag2Vote = sequelize.define("Tag2Vote", {
-    Tag2VoteID: Sequelize.INTEGER,
-    entityID: Sequelize.INTEGER,
-    entity: Sequelize.TEXT
+    Tag2VoteID: DataTypes.INTEGER,
+    entityID: DataTypes.INTEGER,
+    entity: DataTypes.TEXT
   }, {
     classMethods: {
       associate: function(models) {

@@ -2,23 +2,23 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Group = sequelize.define("group", {
-    topic: Sequelize.STRING,
-    owner: Sequelize.STRING,
+    topic: DataTypes.STRING,
+    owner: DataTypes.STRING,
     coverPhoto: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         validate:{
           isUrl: true
         }
     },
-    titleBody: Sequelize.TEXT,
+    titleBody: DataTypes.TEXT,
     uuid: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         validate: {
           isUuid: true
         }
     }
   }, {
-    classMethods: {
+    classMethods: { 
       associate: function(models) {
         Group.hasMany(models.Role, {
           onDelete: "CASCADE",

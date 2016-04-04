@@ -2,8 +2,8 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Paragraph = sequelize.define("paragraph", {
-    bodyHtml: Sequelize.TEXT,
-    ParagraphID: Sequelize.INTEGER
+    bodyHtml: DataTypes.TEXT,
+    ParagraphID: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {

@@ -1,29 +1,9 @@
-/**
- * Created by kido on 31/03/16.
- */
-
-
 {
-  "development": {
-    "dialect": "postgres",
-    //"storage": "./db.development.sqlite"
-    // unused for now
-  },
   "test": {
     "username": "postgres",
     "password": "postgres@!#@$#%$666",
     "database": "DelibDB",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   }
-//,
-//  "production": {
-//    "username": "root",
-//    "password": null,
-//    "database": "database_production",
-//    "host": "127.0.0.1",
-//    "dialect": "mysql"
-//
-// saved for later use, uncomm. when needed.
-// }
 }

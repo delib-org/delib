@@ -2,28 +2,28 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Issue = sequelize.define("topic", {
-    firstName: Sequelize.STRING,
-    lastName: Sequelize.STRING,
-    nickName: Sequelize.STRING,
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    nickName: DataTypes.STRING,
     email: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         validate: {
             isEmail: true
         },
         notEmpty: true
     },
-    hashedPassword: Sequelize.STRING,
-    language: Sequelize.STRING,
-    fbID: Sequelize.STRING,
-    fbToken: Sequelize.STRING,
+    hashedPassword: DataTypes.STRING,
+    language: DataTypes.STRING,
+    fbID: DataTypes.STRING,
+    fbToken: DataTypes.STRING,
     fbProfileImageURL: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         validate: {
             isUrl: true
         }
     },
     joinDate: {
-        type: Sequelize.DATE,
+        type: DataTypes.DATE,
         validate: {
             isDate: true
         }
@@ -32,10 +32,11 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         Issue.belongsTo(models.Group, {
-          onDelete: "CASCADE",
-          foreignKey: {
-            allowNull: false
-          });
+            onDelete: "CASCADE",
+            foreignKey: {
+                allowNull: false
+            }
+        });
         Issue.hasMany(models.Question, {
             onDelete: "CASCADE",
             foreignKey: {

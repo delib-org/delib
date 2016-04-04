@@ -6,7 +6,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Role = sequelize.define("role", {
         roleUuid: {
-            type: Sequelize.UUID,
+            type: DataTypes.UUID,
             primaryKey: true,
             validate: {
                 isUUID: true
@@ -14,10 +14,10 @@ module.exports = function(sequelize, DataTypes) {
             autoIncrement: true
         },
         roleType:{
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             validate: {
-            isIn: [[editor, owner]]
-            // insert further roles when needed}
+            isIn: [['editor', 'owner']]
+            // insert further roles when needed
         }
     }
     }, {
@@ -39,5 +39,5 @@ module.exports = function(sequelize, DataTypes) {
             }
         }
     });
-    return Permission;
+    return Role;
 }

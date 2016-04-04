@@ -2,9 +2,9 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Option = sequelize.define("option", {
-    title: Sequelize.STRING,
-    body: Sequelize.TEXT,
-    questionID: Sequelize.INTEGER
+    title: DataTypes.STRING,
+    body: DataTypes.TEXT,
+    questionID: DataTypes.INTEGER
 }, {
     classMethods: {
       associate: function(models) {
@@ -12,7 +12,8 @@ module.exports = function(sequelize, DataTypes) {
           onDelete: "CASCADE",
           foreignKey: {
             allowNull: false
-          });
+          }
+        });
         Option.hasMany(models.Paragraph, {
           onDelete: "CASCADE",
           foreignKey: {

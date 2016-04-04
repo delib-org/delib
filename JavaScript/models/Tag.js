@@ -3,8 +3,8 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Tag = sequelize.define("tag", {
-      Name: Sequelize.STRING,
-    TagID: Sequelize.INTEGER
+      Name: DataTypes.STRING,
+    TagID: DataTypes.INTEGER
 }, {
     classMethods: {
       associate: function(models) {

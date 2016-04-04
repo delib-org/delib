@@ -2,10 +2,10 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Vote = sequelize.define("vote", {
-    VoteID: Sequelize.INTEGER,
-    entityID: Sequelize.INTEGER,
-    entity: Sequelize.TEXT,
-    value: Sequelize.FLOAT
+    VoteID: DataTypes.INTEGER,
+    entityID: DataTypes.INTEGER,
+    entity: DataTypes.TEXT,
+    value: DataTypes.FLOAT
   }, {
     classMethods: {
       associate: function(models) {

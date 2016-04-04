@@ -4,11 +4,12 @@
 
 var fs        = require("fs");
 var path      = require("path");
-var env       = process.env.NODE_ENV || "development";
+var env       = process.env.NODE_ENV || "test";
 var config    = require(path.join(__dirname, '..', 'config', 'DelibDBconf.json'))[env];
+var Sequelize = require('sequelize');
 var DBmediator = new Sequelize(config.database, config.username, config.password, config);
 var db        = {};
-var Sequelize = require('sequelize');
+
 
 
 
