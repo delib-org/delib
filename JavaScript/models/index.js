@@ -4,13 +4,13 @@
 
 var fs        = require("fs");
 var path      = require("path");
-var env       = process.env.NODE_ENV || "test";
+var env       = "test";
+
+//process.env.NODE_ENV ||
 var config    = require(path.join(__dirname, '..', 'config', 'DelibDBconf.json'))[env];
 var Sequelize = require('sequelize');
-var DBmediator = new Sequelize(config.database, config.username, config.password, config);
+var DBmediator = new Sequelize(config.database, config.dialect, config);
 var db        = {};
-
-
 
 
 // NOTE: .reddir*Sync* is not an A-sync. function.
@@ -37,4 +37,4 @@ Object.keys(db).forEach(function(modelName) {
 db.DBmediator = DBmediator;
 db.Sequelize = Sequelize;
 
-DBmediator.sync();
+module.exports = db;

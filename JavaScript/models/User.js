@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
     }, {
     classMethods: {
       associate: function(models) {
-        User.hasMany(models.Role, {
+        User.hasMany(models.role, {
           onDelete: "CASCADE",
           foreignKey: {
             allowNull: false

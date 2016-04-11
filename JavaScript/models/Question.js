@@ -7,9 +7,10 @@ module.exports = function(sequelize, DataTypes) {
     discussionID: DataTypes.INTEGER,
     userID: DataTypes.INTEGER,
     uuid: {
-        type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
+      primaryKey: true,
       validate: {
-        isUuid: true
+        isUUID: true
       }
     }
     // Uncomm. and fill in <<type>> when defined
@@ -17,13 +18,13 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        Question.belongsTo(models.Issue, {
+        Question.belongsTo(models.issue, {
           onDelete: "CASCADE",
           foreignKey: {
             allowNull: false
           }
         });
-          Question.hasMany(models.Option, {
+          Question.hasMany(models.option, {
           onDelete: "CASCADE",
           foreignKey: {
             allowNull: false

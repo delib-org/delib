@@ -20,14 +20,14 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: { 
       associate: function(models) {
-        Group.hasMany(models.Role, {
+        Group.hasMany(models.role, {
           onDelete: "CASCADE",
           foreignKey: {
             allowNull: false
           }
         });
 
-        Group.hasMany(models.Issue, {
+        Group.hasMany(models.issue, {
           onDelete: "CASCADE",
           foreignKey: {
             allowNull: false
@@ -37,4 +37,4 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
   return Group;
-}
+};

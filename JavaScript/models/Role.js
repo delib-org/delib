@@ -5,13 +5,12 @@
 
 module.exports = function(sequelize, DataTypes) {
     var Role = sequelize.define("role", {
-        roleUuid: {
+        uuid: {
             type: DataTypes.UUID,
             primaryKey: true,
             validate: {
                 isUUID: true
-            },
-            autoIncrement: true
+            }
         },
         roleType:{
             type: DataTypes.STRING,
@@ -23,14 +22,14 @@ module.exports = function(sequelize, DataTypes) {
     }, {
         classMethods: {
             associate: function(models) {
-                Role.belongsTo(models.User, {
+                Role.belongsTo(models.user, {
                     onDelete: "CASCADE",
                     foreignKey: {
                         allowNull: false
                     }
                 });
 
-                Role.belongsTo(models.Group, {
+                Role.belongsTo(models.group, {
                     onDelete: "CASCADE",
                     foreignKey: {
                         allowNull: false

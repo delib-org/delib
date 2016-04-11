@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        Paragraph.belongsTo(models.Option, {
+        Paragraph.belongsTo(models.option, {
           onDelete: "CASCADE",
           foreignKey: {
             allowNull: false

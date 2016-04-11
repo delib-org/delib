@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = function(sequelize, DataTypes) {
-  var Issue = sequelize.define("topic", {
+  var Issue = sequelize.define("issue", {
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     nickName: DataTypes.STRING,
@@ -31,13 +31,13 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        Issue.belongsTo(models.Group, {
+        Issue.belongsTo(models.group, {
             onDelete: "CASCADE",
             foreignKey: {
                 allowNull: false
             }
         });
-        Issue.hasMany(models.Question, {
+        Issue.hasMany(models.question, {
             onDelete: "CASCADE",
             foreignKey: {
             allowNull: false

@@ -1,9 +1,7 @@
 {
   "test": {
-    "username": "postgres",
-    "password": "postgres@!#@$#%$666",
-    "database": "DelibDB",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "sqlite",
+    "storage": "./DelibDB.db"
   }
 }

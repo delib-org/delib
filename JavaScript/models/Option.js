@@ -8,13 +8,13 @@ module.exports = function(sequelize, DataTypes) {
 }, {
     classMethods: {
       associate: function(models) {
-        Option.belongsTo(models.Question, {
+        Option.belongsTo(models.question, {
           onDelete: "CASCADE",
           foreignKey: {
             allowNull: false
           }
         });
-        Option.hasMany(models.Paragraph, {
+        Option.hasMany(models.paragraph, {
           onDelete: "CASCADE",
           foreignKey: {
             allowNull: false

@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
 }, {
     classMethods: {
       associate: function(models) {
-        Tag.belongsTo(models.Tag, {
+        Tag.hasMany(models.tag2vote, {
           onDelete: "CASCADE",
           foreignKey: {
             allowNull: false
