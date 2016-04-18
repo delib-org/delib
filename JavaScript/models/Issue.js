@@ -19,17 +19,25 @@ module.exports = function(sequelize, DataTypes) {
       }, {
     classMethods: {
       associate: function(models) {
-        Issue.belongsTo(models.group, {
-            onDelete: "CASCADE",
-            foreignKey: {
+            Issue.belongsTo(models.group, {
+                onDelete: "CASCADE",
+                foreignKey: {
+                    allowNull: false
+                }
+            });
+          
+            Issue.hasMany(models.question, {
+                onDelete: "CASCADE",
+                foreignKey: {
                 allowNull: false
-            }
-        });
-        Issue.hasMany(models.question, {
-            onDelete: "CASCADE",
-            foreignKey: {
-            allowNull: false
-            }
+                }
+            });
+
+          Issue.hasMany(models.tag2any, {
+              onDelete: "CASCADE",
+              foreignKey: {
+                  allowNull: false
+              }
           });
         }    
     }

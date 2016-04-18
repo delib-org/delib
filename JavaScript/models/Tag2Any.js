@@ -25,7 +25,29 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
           }
         });
-        Tag2Any.belongsTo(models.vote, {
+        
+        Tag2Any.belongsTo(models.question, {
+          onDelete: "CASCADE",
+          foreignKey: {
+            allowNull: false
+          }
+        });
+
+        Tag2Any.belongsTo(models.group, {
+          onDelete: "CASCADE",
+          foreignKey: {
+            allowNull: false
+          }
+        });
+
+        Tag2Any.belongsTo(models.option, {
+          onDelete: "CASCADE",
+          foreignKey: {
+            allowNull: false
+          }
+        });
+
+        Tag2Any.belongsTo(models.issue, {
           onDelete: "CASCADE",
           foreignKey: {
             allowNull: false

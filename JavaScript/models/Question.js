@@ -22,6 +22,14 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
           }
         });
+        
+        Question.hasMany(models.tag2any, {
+          onDelete: "CASCADE",
+          foreignKey: {
+            allowNull: false
+          }
+        });
+        
           Question.hasMany(models.option, {
           onDelete: "CASCADE",
           foreignKey: {

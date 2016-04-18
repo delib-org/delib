@@ -17,18 +17,20 @@ module.exports = function(sequelize, DataTypes) {
     },
     entity: DataTypes.TEXT,
     value: DataTypes.FLOAT
-  }, {
-    classMethods: {
-      associate: function(models) {
-        Vote.hasMany(models.tag2any, {
-          onDelete: "CASCADE",
-          foreignKey: {
-            allowNull: false
-          }
-        });
-      }
-    }
   });
+  // , {
+  //   classMethods: {
+  //     associate: function(models) {
+  //       Vote.hasMany(models.tag2any, {
+  //         onDelete: "CASCADE",
+  //         foreignKey: {
+  //           allowNull: false
+  //         }
+  //       });
+  //     }
+  //   }
+  // });
+  // !!! FOR LATER USE !!!
 
   return Vote;
 };
