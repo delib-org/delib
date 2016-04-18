@@ -2,20 +2,25 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Vote = sequelize.define("vote", {
-    VoteID: {
+    voteUuid: {
       type: DataTypes.UUID,
       primaryKey: true,
       validate: {
         isUUID: true
       }
-    },git
-    entityID: DataTypes.INTEGER,
+    },
+    entityUuid: {
+      type: DataTypes.UUID,
+      validate: {
+        isUUID: true
+      }
+    },
     entity: DataTypes.TEXT,
     value: DataTypes.FLOAT
   }, {
     classMethods: {
       associate: function(models) {
-        Vote.hasMany(models.tag2vote, {
+        Vote.hasMany(models.tag2any, {
           onDelete: "CASCADE",
           foreignKey: {
             allowNull: false

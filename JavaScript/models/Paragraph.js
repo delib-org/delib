@@ -2,8 +2,14 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Paragraph = sequelize.define("paragraph", {
-    bodyHtml: DataTypes.TEXT,
-    ParagraphID: DataTypes.INTEGER
+    paragraphUuid: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      validate: {
+        isUUID: true
+      }
+    },
+    bodyHtml: DataTypes.TEXT
   }, {
     classMethods: {
       associate: function(models) {

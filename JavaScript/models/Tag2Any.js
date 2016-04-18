@@ -1,20 +1,31 @@
  "use strict";
 
 module.exports = function(sequelize, DataTypes) {
-  var Tag2Vote = sequelize.define("tag2vote", {
-    Tag2VoteID: DataTypes.INTEGER,
-    entityID: DataTypes.INTEGER,
+  var Tag2Any = sequelize.define("tag2any", {
+    tag2VoteUuid: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      validate: {
+        isUUID: true
+      }
+    },
+    entityUuid: {
+        type: DataTypes.UUID,
+        validate: {
+            isUUID: true
+        }
+  },
     entity: DataTypes.TEXT
   }, {
     classMethods: {
       associate: function(models) {
-        Tag2Vote.belongsTo(models.tag, {
+        Tag2Any.belongsTo(models.tag, {
           onDelete: "CASCADE",
           foreignKey: {
             allowNull: false
           }
         });
-        Tag2Vote.belongsTo(models.vote, {
+        Tag2Any.belongsTo(models.vote, {
           onDelete: "CASCADE",
           foreignKey: {
             allowNull: false
@@ -24,5 +35,5 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  return Tag2Vote;
+  return Tag2Any;
 };  

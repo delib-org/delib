@@ -5,7 +5,7 @@
 
 module.exports = function(sequelize, DataTypes) {
     var Role = sequelize.define("role", {
-        uuid: {
+        roleUuid: {
             type: DataTypes.UUID,
             primaryKey: true,
             validate: {

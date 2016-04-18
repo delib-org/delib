@@ -2,9 +2,15 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Option = sequelize.define("option", {
+    optionUuid: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      validate: {
+        isUUID: true
+      }
+    },
     title: DataTypes.STRING,
-    body: DataTypes.TEXT,
-    questionID: DataTypes.INTEGER
+    body: DataTypes.TEXT
 }, {
     classMethods: {
       associate: function(models) {

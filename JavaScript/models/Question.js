@@ -2,11 +2,9 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Question = sequelize.define("question", {
-     title: DataTypes.STRING,
-    body: DataTypes.TEXT,
-    discussionID: DataTypes.INTEGER,
-    userID: DataTypes.INTEGER,
-    uuid: {
+    title: DataTypes.STRING,
+    body: DataTypes.TEXT, 
+    questionUuid: {
       type: DataTypes.UUID,
       primaryKey: true,
       validate: {

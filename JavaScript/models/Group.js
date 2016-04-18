@@ -2,20 +2,21 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Group = sequelize.define("group", {
-    topic: DataTypes.STRING,
-    owner: DataTypes.STRING,
-    coverPhoto: {
-        type: DataTypes.STRING,
-        validate:{
-          isUrl: true
-        }
+    groupUuid: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      validate: {
+        isUUID: true
+      }
     },
+    owner: DataTypes.STRING,
+    topic: DataTypes.STRING,
     titleBody: DataTypes.TEXT,
-    uuid: {
-        type: DataTypes.INTEGER,
-        validate: {
-          isUuid: true
-        }
+    coverPhoto: {
+      type: DataTypes.STRING,
+      validate:{
+        isUrl: true
+      }
     }
   }, {
     classMethods: { 
@@ -27,7 +28,14 @@ module.exports = function(sequelize, DataTypes) {
           }
         });
 
-        Group.hasMany(models.issue, {
+        Group.hasMany(models.tag2any, {
+          onDelete: "CASCADE",
+          foreignKey: {
+            allowNull: false
+          }
+        });
+        
+        Group.hasMany(models.role, {
           onDelete: "CASCADE",
           foreignKey: {
             allowNull: false

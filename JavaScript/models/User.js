@@ -2,6 +2,13 @@
 
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("user", {
+    userUuid: {
+        type: DataTypes.UUID,
+        primaryKey: true,
+        validate: {
+            isUUID: true
+        }
+    },    
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     nickName: DataTypes.STRING,

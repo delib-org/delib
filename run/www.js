@@ -1,6 +1,3 @@
-/**
- * Created by kido on 04/04/16.
- */
 console.log('hello');
 //var debug = require('debug')('express-example');
 //var app = require('../app');
