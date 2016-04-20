@@ -1,4 +1,4 @@
-var models  = require('../models');
+var models  = require('../models/index');
 var loginsterHandler = require('../handlers/loginHandler');
 var express = require('express');
 var loginsterRouter  = express.Router();

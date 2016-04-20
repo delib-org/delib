@@ -1,6 +1,6 @@
 console.log('hello');
 var debug = require('debug')('express-example');
-var app = require('../routers/app');
+var app = require('./app');
 var models = require("../JavaScript/models");
 
 app.set('port', process.env.PORT || 3000);
