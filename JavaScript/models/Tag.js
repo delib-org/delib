@@ -4,8 +4,9 @@
 module.exports = function(sequelize, DataTypes) {
   var Tag = sequelize.define("tag", {
     Name: DataTypes.STRING,
-    tagUuid: {
+    Uuid: {
         type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
         validate: {
             isUUID: true

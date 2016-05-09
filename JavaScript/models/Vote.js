@@ -2,8 +2,9 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Vote = sequelize.define("vote", {
-    voteUuid: {
+    Uuid: {
       type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
       validate: {
         isUUID: true
@@ -11,6 +12,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     entityUuid: {
       type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       validate: {
         isUUID: true
       }

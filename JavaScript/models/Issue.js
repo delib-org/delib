@@ -2,8 +2,9 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Issue = sequelize.define("issue", {
-      issueUuid: {
+      Uuid: {
           type: DataTypes.UUID,
+          defaultValue: DataTypes.UUIDV4,
           primaryKey: true,
           validate: {
               isUUID: true

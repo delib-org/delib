@@ -7,7 +7,7 @@ var path      = require("path");
 var env       = "test";
 
 //process.env.NODE_ENV ||
-var config    = require(path.join(__dirname, '..', 'config', 'DelibDBconf.json'))[env];
+var config    = require(path.join(__dirname, '..', 'config', 'DelibConf.json'))[env];
 var Sequelize = require('sequelize');
 var DBmediator = new Sequelize(config.database, config.username, config.password, config);
 var db        = {};

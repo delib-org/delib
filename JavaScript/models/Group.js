@@ -2,15 +2,16 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Group = sequelize.define("group", {
-    groupUuid: {
+    Uuid: {
       type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
       validate: {
         isUUID: true
       }
     },
     owner: DataTypes.STRING,
-    topic: DataTypes.STRING,
+    title: DataTypes.STRING,
     titleBody: DataTypes.TEXT,
     coverPhoto: {
       type: DataTypes.STRING,

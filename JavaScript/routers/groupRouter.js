@@ -15,19 +15,18 @@
 "use strict";
 
 var express = require('express');
-var loginsterHandler = require('../handlers/loginsterHandlers');
-var loginsterRouter = express.Router();
+var groupsRouter  = express.Router();
+var groupsHandlers = require('../handlers/groupsHandlers');
 
-loginsterRouter.get('connection', loginsterHandler.loadRegistrationPage);
 
-loginsterRouter.post('/register', loginsterHandler.registerUser);
+groupsRouter.get('/public', groupsHandlers.get_public_groups_list);
 
-loginsterRouter.get('/login/', loginsterHandler.loadLoginPage);
+groupsRouter.get('/member', groupsHandlers.get_groups_list_i_belong_to);
 
-loginsterRouter.post('/login/User=:userUuid', loginsterHandler.authanticateUser);
+groupsRouter.get('/manage', groupsHandlers.get_groups_list_i_manage);
 
 module.exports = {
-        actualRouter: loginsterRouter,
-        routerPath: '/loginster',
-        Name: "loginsterRouter"
+    actualRouter: groupsRouter,
+    routerPath: '/groups',
+    Name: "groupRouter"
 };

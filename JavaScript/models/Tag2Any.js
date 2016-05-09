@@ -2,8 +2,9 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Tag2Any = sequelize.define("tag2any", {
-    tag2VoteUuid: {
+    Uuid: {
       type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
       validate: {
         isUUID: true

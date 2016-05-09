@@ -2,15 +2,16 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Question = sequelize.define("question", {
-    title: DataTypes.STRING,
-    body: DataTypes.TEXT, 
-    questionUuid: {
+    Uuid: {
       type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
       validate: {
         isUUID: true
       }
-    }
+    },
+    title: DataTypes.STRING,
+    body: DataTypes.TEXT 
     // Uncomm. and fill in <<type>> when defined
     //stateofVisual: DataTypes.<<type>>
   }, {

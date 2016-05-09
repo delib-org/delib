@@ -15,19 +15,17 @@
 "use strict";
 
 var express = require('express');
-var loginsterHandler = require('../handlers/loginsterHandlers');
-var loginsterRouter = express.Router();
+var dashboardRender  = express.Router();
+var jwtStrat = require('../passportStrat/loginsterStrat');
 
-loginsterRouter.get('connection', loginsterHandler.loadRegistrationPage);
+dashboardRender.use(jwtStrat.initialize());
 
-loginsterRouter.post('/register', loginsterHandler.registerUser);
+//console.dir(jwtStrat);
 
-loginsterRouter.get('/login/', loginsterHandler.loadLoginPage);
-
-loginsterRouter.post('/login/User=:userUuid', loginsterHandler.authanticateUser);
+dashboardRender.get('/', jwtStrat.authenticate('jwt', { session: false}));
 
 module.exports = {
-        actualRouter: loginsterRouter,
-        routerPath: '/loginster',
-        Name: "loginsterRouter"
+        actualRouter: dashboardRender,
+        routerPath: '/dashboard/:userUid/:token',
+        Name: "dashboardRender"
 };
