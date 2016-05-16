@@ -35,7 +35,7 @@ module.exports =
             });
 
         res.send(userOfGroupsArr);
-    }, 
+    },
     get_groups_list_i_manage: function(req, res){
         var ownerOfGroupsArr= [];
 

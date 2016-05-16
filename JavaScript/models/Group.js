@@ -10,7 +10,6 @@ module.exports = function(sequelize, DataTypes) {
         isUUID: true
       }
     },
-    owner: DataTypes.STRING,
     title: DataTypes.STRING,
     titleBody: DataTypes.TEXT,
     coverPhoto: {
@@ -36,7 +35,7 @@ module.exports = function(sequelize, DataTypes) {
           }
         });
         
-        Group.hasMany(models.role, {
+        Group.hasMany(models.issue, {
           onDelete: "CASCADE",
           foreignKey: {
             allowNull: false
@@ -45,5 +44,6 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     });
+  
   return Group;
 };

@@ -2,6 +2,8 @@
 
 var JwtStrategy =  require('passport-jwt').Strategy;
 //var ExtractJwt  = require('passport-jwt').ExtractJwt;
+// var BearerStrategy = require('passport-http-bearer').Strategy;
+// var FacebookStrategy = require('passport-facebook').Strategy;
 
 var passport = require('passport');
 var models  = require('../models/index');
@@ -32,6 +34,26 @@ console.log("jwtFromRequest"+opts.jwtFromRequest);
 
 // Following script is the actual implementation and actions to be taken, using
 // JWT as our passport strategy. Note that JwtStrategy object is using opts JSON.
+// passport.use(
+//     new FacebookStrategy(
+//         options,
+//         function(accessToken, refreshToken, profile, done) {
+//             User.findOrCreate(
+//                 { facebookId: profile.id },
+//                 function (err, result) {
+//                     if(result) {
+//                         result.access_token = accessToken;
+//                         result.save(function(err, doc) {
+//                             done(err, doc);
+//                         });
+//                     } else {
+//                         done(err, result);
+//                     }
+//                 }
+//             );
+//         }
+//     )
+// );
 
 passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
     console.dir("this is a jwt_payload round here:"+jwt_payload);
